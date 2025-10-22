@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+ <!doctype html>
+<html lang="pt-BR">
+<link rel="icon" href="img/capa_jogo - Copia.png">
+</head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>O Canto das Correntes</title>
+  <style>
+    :root{
+      --bg:#071420;
+      --water1:#08334a;
+      --water2:#0b556f;
+      --accent:#7be3ff;
+      --paper:#0f2b34;
+      --text:#dff7ff;
+      --muted:#8fb6bd;
+      --success:#9ff5b8;
+    }
+    html,body{height:100%;margin:0;font-family: 'Verdana', Geneva, Tahoma, sans-serif;background:linear-gradient(180deg,#02121a 0%, #042331 60%);color:var(--text);}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:48px;box-sizing:border-box}
+    .card{width:940px;max-width:96%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:2px solid rgba(255,255,255,0.04);padding:28px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.6);position:relative;overflow:hidden}
+    h1{font-size:28px;margin:0 0 8px 0;letter-spacing:1px}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .water{position:absolute;left:0;right:0;bottom:-12%;height:55%;pointer-events:none;}
+    .wave{position:absolute;left:-50%;right:-50%;height:120%;background:radial-gradient(circle at 50% 10%, rgba(255,255,255,0.02), rgba(255,255,255,0));opacity:0.06;mix-blend-mode:overlay;transform:translateY(0);}
+    .wave.w1{background:linear-gradient(90deg, rgba(123,227,255,0.06) 0%, rgba(0,0,0,0) 60%);animation:swim 10s linear infinite;}
+    .wave.w2{background:linear-gradient(90deg, rgba(10,102,132,0.04), rgba(0,0,0,0));animation:swim 18s linear infinite reverse;opacity:0.08}
+    @keyframes swim{0%{transform:translateX(-10%)}50%{transform:translateX(10%)}100%{transform:translateX(-10%)}}
+    .lore{background:rgba(0,0,0,0.18);border:1px dashed rgba(255,255,255,0.03);padding:16px;border-radius:6px;font-size:15px;line-height:1.5}
+    .lore p{margin:8px 0}
+    .codebox{margin-top:16px;display:flex;gap:10px;align-items:center}
+    input.code{flex:1;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);padding:10px 12px;border-radius:6px;color:var(--text);font-size:16px}
+    button.submit{background:linear-gradient(180deg,var(--accent),#39c6e8);color:#002a33;border:none;padding:10px 14px;border-radius:6px;font-weight:700;cursor:pointer}
+    button.submit:active{transform:translateY(1px)}
+    .secret{margin-top:18px;padding:14px;border-radius:6px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.02);display:none}
+    .secret.visible{display:block}
+    .hidden-hint{display:inline-block;color:var(--muted);text-decoration:underline dotted;cursor:pointer;position:relative}
+    .hidden-hit-area{position:absolute;left:0;top:0;width:100%;height:100%;opacity:0}
+    .glow{animation:glow 1.6s ease-in-out 1}
+    @keyframes glow{0%{box-shadow:0 0 0 rgba(159,245,184,0)}50%{box-shadow:0 0 24px rgba(159,245,184,0.14)}100%{box-shadow:0 0 0 rgba(159,245,184,0)}}
+    @media (max-width:640px){.card{padding:16px}.lore{font-size:14px}h1{font-size:20px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main">
+      <h1>Página Secreta — O Canto das Correntes</h1>
+      <p class="lead">Você encontrou um fragmento escondido. Nem tudo está onde parece — siga as pistas e descubra o que o rio sussurra.</p>
+
+      <div class="lore" aria-live="polite">
+        <p><em>“Antes que as margens se calassem, alguém deixou um aviso em pedras e reflexos.”</em></p>
+        <p>As marcas que você encontra são pedaços de uma palavra maior. <strong>Procure o reflexo</strong> — ele sempre revela uma letra a mais.</p>
+        <p>Dica: às vezes há um botão escondido atrás do texto, um toque discreto pode abrir outra página.</p>
+        <p>Se preferir tentar agora, digite o código que você encontrou no jogo:</p>
+      </div>
+
+      <div class="codebox">
+        <input class="code" id="codeInput" placeholder="Digite o código (ex: GUARDIAO)" aria-label="campo de código" />
+        <button class="submit" id="tryBtn">Verificar</button>
+      </div>
+
+      <div class="secret" id="secretBox" role="region" aria-live="polite">
+        <strong>Mensagem Revelada:</strong>
+        <p id="secretText">Assim que o último selo for despertado, o rio lembrará seu nome. Obrigado por ler, Guardião.</p>
+        <p style="margin-top:8px;color:var(--muted);font-size:13px">Você desbloqueou um wallpaper exclusivo e um trecho extra de lore. Continue caçando as pistas pelo site.</p>
+      </div>
+
+      <p style="margin-top:14px;color:var(--muted);font-size:13px">Uma pista extra: <span class="hidden-hint" id="hiddenHint">procure o <em>reflexo</em>
+        <span class="hidden-hit-area" id="hiddenHit" title="Área oculta"></span>
+      </span></p>
+
+      <div style="margin-top:16px;color:var(--muted);font-size:13px">Se acertar o código, você verá uma mensagem e um link para a recompensa.</div>
+
+      <div class="water" aria-hidden="true">
+        <div class="wave w1"></div>
+        <div class="wave w2"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const validCodes = ['REFLEXO','GUARDIAO','AGUA'];
+    const btn = document.getElementById('tryBtn');
+    const input = document.getElementById('codeInput');
+    const secretBox = document.getElementById('secretBox');
+    const secretText = document.getElementById('secretText');
+    const hiddenHit = document.getElementById('hiddenHit');
+    const hiddenHint = document.getElementById('hiddenHint');
+
+    function showSecret(codeUsed){
+      secretBox.classList.add('visible','glow');
+      secretText.textContent = `Código "${codeUsed.toUpperCase()}" aceito.\n\n"O rio recorda aqueles que o ouvem com cuidado."`;
+      const a = document.createElement('a');
+      a.href = '/secreto/wallpaper-guardiao.zip'; /*onde colocar o link*/
+      a.textContent = 'Baixar recompensa';
+      a.style.display='inline-block';
+      a.style.marginTop='10px';
+      a.style.color='var(--success)';
+      secretBox.appendChild(a);
+    }
+
+    btn.addEventListener('click',()=>{
+      const v = (input.value||'').trim().toUpperCase();
+      if(v && validCodes.includes(v)){
+        showSecret(v);
+      } else {
+        input.value='';
+        input.placeholder='Código inválido. Tente outra pista.';
+        input.focus();
+      }
+    });
+
+    hiddenHit.addEventListener('click',()=>{
+      hiddenHint.style.color='var(--accent)';
+      hiddenHint.style.textDecoration='underline';
+      hiddenHint.style.opacity='1';
+      alert('Você encontrou um botão oculto — preste atenção no que está escrito, isso pode te revelar o código. (Dica: navegação)');
+    });
+
+    input.addEventListener('keydown',(e)=>{if(e.key==='Enter')btn.click()});
+    input.addEventListener('focus',()=>input.style.outline='2px solid rgba(123,227,255,0.12)');
+    input.addEventListener('blur',()=>input.style.outline='none');
+  </script>
+</body>
+</html>

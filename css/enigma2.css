@@ -1,0 +1,59 @@
+.titulo{
+    display: grid;
+    margin-top: 60px;
+    background-color: rgb(255, 255, 255);
+    height: 120px;
+    text-align: center;
+    align-items: center;
+}
+.img_final{
+    margin-top: 60px;
+}
+
+ #toggle-video {
+    display: none;
+  }
+
+  /* estilo do botão */
+  label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #df5feb;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  label:hover {
+    background: #000000;
+  }
+
+  /* vídeo escondido por padrão */
+  .video-container {
+    display: none;
+    margin-top: 30px;
+    align-items: center;
+  }
+
+  /* quando o checkbox está marcado, mostra o vídeo */
+  #toggle-video:checked ~ .video-container {
+    display: block;
+  }
+.container01{
+    margin-top: 60px;
+}
+
+.botao_escondido{
+    display:grid;
+    text-align: center;
+    align-items: center;
+    width: 125px;
+    height: 45px;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+}
+.D{
+    text-decoration: none;
+    color: black;
+}

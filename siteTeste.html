@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardião das águas Site Oficial</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/siteTeste.css">
+    <link rel="icon" href="img/capa_jogo - Copia.png">
+</head>
+<body>
+ 
+
+    <!--Menu-->
+    <nav class="navbar col-12  bg-dark navbar-expand-lg" data-bs-theme="dark" style="z-index: 999;">
+        <div class="container-fluid col-8">
+          <a class="navbar-brand" href="#"> <h3>Guardião das águas</h3></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#História">História</a>
+              <a class="nav-link" href="#Personagens">Personagens</a>
+              <a class="nav-link" href="#Mapa">Mapa</a>
+
+            </div>
+          </div>
+        </div>
+
+  <!-- página secreta -->
+        <div class="pg_secreta col-3">
+    <span class="simbolo" data-simbolo="1">🌊</span>
+    <span class="simbolo" data-simbolo="2">🔺</span>
+    <span class="simbolo" data-simbolo="3">🌿</span>
+  </div>
+
+  <!--JavaScript-->
+<script>
+    const sequenciaCorreta = ["1", "2", "3"];
+    let sequenciaAtual = [];
+
+    const simbolos = document.querySelectorAll(".simbolo");
+
+    simbolos.forEach(simbolo => {
+      simbolo.addEventListener("click", () => {
+        sequenciaAtual.push(simbolo.dataset.simbolo);
+
+        if (sequenciaAtual.length === sequenciaCorreta.length) {
+          if (JSON.stringify(sequenciaAtual) === JSON.stringify(sequenciaCorreta)) {
+            window.open("AGUA.html", "_blank"); 
+          }else{
+            alert('Código incorreto, tente novamente')
+          }
+          sequenciaAtual = []; 
+        }
+      });
+    });
+  </script>
+  <!--Página secreta fechamento-->
+      </nav>
+      <br>
+      <br>
+
+
+<!--Imagem fundo com caixa de texto-->
+
+<div class="img_fundo">
+  <img src="img/img_inicial_fundo.png" alt="">
+</div>
+
+ 
+<div class="container4">
+  <div class="row">
+   <div class="caixa_texto">
+     <h2>Prepare-se para embarcar em uma jornada pelas águas da mudança! 🌊</h2>
+   </div>
+  </div> 
+  
+  <div class="row">
+    <div class="caixa_texto2">
+      <p>
+        Em <b><i>Guardião das Águas</i></b>, você é o responsável por devolver a vida a um rio esquecido. Navegue em seu barco, colete o lixo e transforme o que parecia sem valor em melhorias para seu equipamento e para o próprio ambiente.
+  Descubra segredos escondidos, enfrente tempestades, resolva enigmas misteriosos e conte com a ajuda de uma fiel capivara em sua missão de proteger a natureza.
+      </p>
+      <p>
+        Descubra segredos escondidos, enfrente tempestades, resolva enigmas misteriosos e conte com a ajuda de uma fiel capivara em sua missão de proteger a natureza.
+      <br><br>
+        💧 <b class="italico_verde">Explore. Limpe. Restaure.</b><br>
+        O futuro do rio está em suas mãos. <br><br>
+        👉 <b><i class="italico_verde">Jogue agora Guardião das Águas e torne-se o herói que o mundo precisa!</i></b>
+      </p>
+      </div>
+  </div>
+</div>
+
+<!--Imagem com download-->
+
+<div class="container1">
+  <footer><div class="baixar"><h2><br>BAIXAR</h2></div></footer>
+  <main> <div class="baixe_agora"> <h2>BAIXE AGORA</h2> </div> </main>
+  <aside>  
+       <img src="img/capa_jogo.png" class="card-img  " alt="...">
+  </aside>
+</div>
+
+
+
+      <!--Cards-->
+    
+  <div class="container2">
+    <div class="row">
+   
+      <div class="col-md-3">
+        <img src="img/porto_esperança.jpg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Porto Esperança</h5>
+          <p class="card-text">Área inicial, onde tudo começa, aqui você encontrará o Comerciante, ele te ajudará com melhorias para suas ferramentas, assim ficando mais fácil para coletar o lixo.</p>
+          
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <img src="img/floresta_alagada (1).jpg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Floresta Alagada</h5>
+          <p class="card-text">Faze com pouco lixo para aprender as mecânicas do jogo, mas não se engane, nessa área tem mais chances de tempestades e onde você encontrará a Capirava-Pet.</p>
+        </div>
+      </div>
+    
+
+      <div class="col-md-3">
+        <img src="img/img_ilha_dos_misterios (1).png" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Ilha dos Mistérios</h5>
+          <p class="card-text">Na Ilha dos Mistérios você encontrará enigmas com inscrições, fique atento, isso te ajudará a desvendar os mistérios de Porto Esperança.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <img src="img/img_fabrica_abandonada (1).png" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Fabrica Abandonada</h5>
+          <p class="card-text">Área final, muito poluida e umas das mais difíceis de se limpar, será que você passará de todos os desafios para finalmente deixar Porto Esperança limpo?</p>
+          
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+        <!--Conteudo-->
+    <br><br>
+
+  <section id="História"> <!--rolamento automático barra de navegação-->
+    <hr class="col-12 m-auto linha"/>
+      <div class="col-11 m-auto c">
+
+ <!--botão escondido-->
+        <div class="row">
+          <div class="col-4 historia">
+            <h1 class="text-center_a">HISTÓRIA</h1>
+          </div>
+          <div class=" col-2 botao_escondido">
+            <a class="D" href="enigma2.html">Clique aqui</a>
+          </div>
+        </div>
+  <!--separação (botão escondido)-->
+
+
+          <p class="text-center_b"> Você é um jovem explorador que chega a uma cidade ribeirinha chamada Porto Esperança. O rio que corta a região, antes cristalino e cheio de vida, foi tomado pelo lixo deixado por viajantes, indústrias e moradores descuidados. <br><br>
+ 
+          Sua missão é limpar o rio e restaurar o equilíbrio da natureza, recuperando pouco a pouco a vida aquática e as áreas ao redor. Conforme o lixo é coletado e vendido, pode melhorar seu barco e suas ferramentas, ganhando acesso a áreas mais distantes e perigosas do rio. <br><br>
+             
+          No decorrer da jornada, fenômenos naturais (tempestades e enchentes) testam a sua habilidade, mas também revelam segredos escondidos. A Capivara-Pet surge como um símbolo da natureza agradecendo a ajuda, e também como parceira leal. <br><br>
+             
+          No fundo, há um mistério maior: códigos espalhados no mundo e no site oficial apontam para uma mensagem secreta, talvez deixada por antigos protetores do rio, que revelará o verdadeiro “coração” da história. 
+          Será que você é capaz de limpar toda a cidade e desvendar os mistérios de Porto Esperança?</p>
+      </div>
+    </section>
+    <br><br>
+        <hr class="col-12 m-auto"/>
+        <br><br>
+
+
+  <section id="Personagens"> <!--rolamento automático barra de navegação-->
+      <div class="col-11 m-auto d">
+        <div class="col-4 historia">
+            <h1 class="text-center_e">PERSONAGENS</h1>
+          </div>
+      </div>
+  </section>
+
+ <!--personagens cards-->
+
+<div class="container3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-3">
+        <img src="img/capivara.jpeg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Capivara-Pet</h5>
+          <p class="card-text">Ajuda o jogador, avisa sobre tempestades e pode localizar lixos raros.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <img src="img/comerciante.jpeg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Comerciante</h5>
+          <p class="card-text">Compra o lixo coletado e vende melhorias.</p>
+        </div>
+      </div>
+    
+
+      <div class="col-md-3">
+        <img src="img/nevegante.jpeg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Navegante</h5>
+          <p class="card-text">Aparece em eventos raros e dá dicas ou recompesas especiais.</p>
+          
+        </div>
+      </div>
+  </div>    
+
+  <br><br>
+  <div class="row">
+      <div class="col-md-3 espaco">
+        <img src="img/player.jpeg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Jogador (você)</h5>
+          <p class="card-text">Protagonista e controla o barco.</p>
+      </div>
+        </div>
+
+          <div class="col-md-3 ">
+        <img src="img/dona_iracema.jpeg" class="card-img-bottom" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Dona Iracema</h5>
+          <p class="card-text">Senhora sábia, conta lendas e dá dicas para os enigmas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<!--Mapa-->
+
+
+<div class="container5">
+<hr>
+<section id="Mapa"> <!--rolamento automático barra de navegação-->
+      <div class="col-12 m-auto g">
+        <div class="col-4 historia">
+            <h1 class="text-center f">MAPA</h1>
+          </div>
+      </div>
+  </section>
+
+  <div class="img_mapa">
+    <img src="img/img_mapa.jpg" alt="">
+  </div>
+<h3 class="texto1">
+   Aqui tem o mapa de todas as areas do jogo, por ele é possivel se localizar e se preparar para um futuro dezafio
+</h3>
+<hr>
+</div>
+</div>
+<!--Mapa-->
+
+
+<!--testando-->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <h4>GUARDIÃO DAS ÁGUAS STUDIO</h4>
+      <p>© 2025 Guardião das Águas. Todos os direitos reservados.</p>
+      <p>
+        <a href="#">Diretrizes de Uso</a> |
+        <a href="#">Política de Privacidade</a> |
+        <a href="#">Gerenciar Cookies</a>
+      </p>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>🎮 Jogos</h4>
+        <ul>
+          <li><a href="#">Guardião das Águas</a></li>
+          <li><a href="#">Histórias do Rio (em breve)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>🌱 Comunidade</h4>
+        <ul>
+          <li><a href="#">Fórum dos Guardiões</a></li>
+          <li><a href="#">Carreiras no Estúdio</a></li>
+          <li><a href="#">Missões Ambientais</a></li>
+          <li><a href="#">Guia de Iniciantes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>🛒 Loja</h4>
+        <ul>
+          <li><a href="#">Itens do Jogo</a></li>
+          <li><a href="#">Suporte ao Projeto</a></li>
+          <li><a href="#">Pacotes de Expansão</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>🧭 Suporte</h4>
+        <ul>
+          <li><a href="#">Ajuda</a></li>
+          <li><a href="#">Relatar um Problema</a></li>
+          <li><a href="#">Atualizações</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>👤 Conta</h4>
+        <ul>
+          <li><a href="#">Meu Perfil</a></li>
+          <li><a href="#">Resgatar Códigos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <p><strong>Classificação Indicativa:</strong><br>
+      Livre para todas as idades<br>
+      <small>Contém: leve fantasia e temas ambientais.</small></p>
+    </div>
+  </div>
+
+  <div class="footer-quote">
+    💧 “Pequenas ações criam grandes mudanças. Torne-se um Guardião hoje.”
+  </div>
+</footer>
+<!--testando-->
+
+        <!--Rodapé-->
+        <footer class="page-footer p-5 col-12" >
+          <div class="text-center rodape">
+              <p>Privacidade e cookies &nbsp;&nbsp; Termos de uso  &nbsp;&nbsp; Marcas comerciais &nbsp;&nbsp; Sobre nossos anúncios &nbsp;&nbsp; @2025 copyright: Manuela Viana</p>
+          </div>
+        </footer>
+
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </div>
+</body>
+</html>
